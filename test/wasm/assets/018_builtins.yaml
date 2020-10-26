@@ -302,3 +302,9 @@ cases:
         "y": 4,
       }
     ]
+  - note: glob match
+    query: glob.match("*.github.com", [], "api.github.com", x)
+    want_result: [{'x': true}]
+  - note: glob not match
+    query: glob.match("*.github.com", [], "api.google.com", x)
+    want_result: [{'x': false}]
